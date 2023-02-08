@@ -1,12 +1,12 @@
 package com.j4.testone.testone.configuration;
 
-import com.j4.testone.testone.bean.MateriaMath;
-import com.j4.testone.testone.bean.OperationsMath;
-import com.j4.testone.testone.bean.UniversityAcademy;
-import com.j4.testone.testone.bean.UniversityAcademyImpl;
+import com.j4.testone.testone.bean.*;
+import com.j4.testone.testone.pojo.Player;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 
 @org.springframework.context.annotation.Configuration
+@EnableConfigurationProperties({Player.class})
 public class Configuration {
 
     @Bean
@@ -19,4 +19,8 @@ public class Configuration {
         return new UniversityAcademyImpl(operationsMath);
     }
 
+    @Bean
+    public CredentialAll getCredentialAll(){
+        return new UserCredential();
+    }
 }
